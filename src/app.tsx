@@ -217,8 +217,12 @@ class App extends React.Component<Properties, State> {
                 <div className="guesses">
                     <div className="info">
                         I am thinking of a binary number with {this.config.length} digits.<br />
-                        For example, 110110.
+                        For example, { Math.random().toString(2).slice(2, this.config.length + 2) }.
                         <br />
+                        But not that.
+                        <br/>
+                        Probably.
+                        <br /><br/>
                         Make a guess and I will tell you how many digits are correct.
                     </div>
                     <button onClick={() => this.guesses.reset()}>Reset</button>
