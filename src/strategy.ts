@@ -11,7 +11,8 @@ class Strategy {
         this.guessHistory = [];
     }
 
-    public reset() {
+    public reset(length: number) {
+        this.numberLength = length;
         this.possibleNumbers = this.generateAllPossibleNumbers();
         this.constraints = [];
         this.guessHistory = [];

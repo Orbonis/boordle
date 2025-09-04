@@ -313,7 +313,7 @@ class App extends React.Component<Properties, State> {
             );
         },
         reset: () => {
-            this.solver.strategy.reset();
+            this.solver.strategy.reset(this.config.length);
             this.setState({
                 solver: {
                     input: "0",
