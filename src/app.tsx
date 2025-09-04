@@ -138,7 +138,7 @@ class App extends React.Component<Properties, State> {
                 if (correct) {
                     window.setTimeout(() => {
                         alert("You win!");
-                        window.location.reload();
+                        this.guesses.reset();
                     }, 0);
                 } else if (this.state.guesses.length >= this.config.maxGuesses) {
                     window.setTimeout(() => {
@@ -148,7 +148,7 @@ class App extends React.Component<Properties, State> {
                         ];
 
                         alert(lossMessage.join("\n"));
-                        window.location.reload();
+                        this.guesses.reset();
                     }, 0);
                 } else {
                     this.guesses.nextTip();
@@ -160,6 +160,12 @@ class App extends React.Component<Properties, State> {
             } else {
                 this.input.refocus();
             }
+        },
+        reset: () => {
+            this.setState({
+                guesses: [],
+                input: Array.from({ length: this.config.length }, () => "")
+            });
         },
         render: () => {
             const comparisons: number[] = this.state.guesses.map((guess) => {
@@ -174,6 +180,7 @@ class App extends React.Component<Properties, State> {
                         <br />
                         Make a guess and I will tell you how many digits are correct.
                     </div>
+                    <button onClick={() => this.guesses.reset()}>Reset</button>
                     {this.state.guesses.map((guess, index) => {
                         const remainingGuesses = index === this.state.guesses.length - 1 ? (
                             <span>
@@ -259,7 +266,7 @@ class App extends React.Component<Properties, State> {
                         Enter a number between 0 and 6 to indicate the number of correct positions.
                     </div>
                     <div className={inputClasses}>
-                        <input id="solver-input" type="text" value={this.state.solver.input} onChange={(e) => this.solver.onInputChange(e)} />
+                        <input id="solver-input" type="number" min="0" max="6" step={""} value={this.state.solver.input} onChange={(e) => this.solver.onInputChange(e)} />
                     </div>
                 </div>
             );
