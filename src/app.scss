@@ -1,0 +1,163 @@
+$primary-bg-color: #324;
+$header-bg-color: #333;
+$tip-text-color: #aaa;
+$text-color: #fef;
+$tab-border-color: #555;
+$active-text-color: #fff;
+
+.app {
+    background-color: $primary-bg-color;
+    color: $text-color;
+    min-height: 100vh;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $header-bg-color;
+        gap: 1em;
+        padding: 2em 0 0 0;
+
+        h1 {
+            font-weight: normal;
+            letter-spacing: 0.5em;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-weight: normal;
+            letter-spacing: 0.25em;
+            font-size: 1.2em;
+            font-stretch: condensed;
+            margin: 0 auto;
+
+            a {
+                color: $text-color;
+            }
+        }
+
+        .tabs {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 2em;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 2em;
+
+            button {
+                background-color: transparent;
+                border: 1px solid $tab-border-color;
+                border-bottom: none;
+                border-radius: 5px 5px 0 0;
+                color: $text-color;
+                font-size: 1.2em;
+                cursor: pointer;
+                padding: 0.5em 3em 0.7em 3em;
+                font-stretch: condensed;
+                letter-spacing: 0.25em;
+
+                &.active {
+                    background-color: $tab-border-color;
+                    color: $active-text-color;
+                }
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 2em auto;
+        text-align: center;
+        max-height: 100vh;
+        overflow-y: auto;
+
+        .hidden {
+            display: none !important;
+        }
+
+        .solver {
+            button {
+                width: fit-content;
+                min-width: 20rem;
+                margin-bottom: 1em;
+                font-size: 1.2em;
+                padding: 0.5em 1em;
+                border-radius: 5px;
+                border: 1px solid $text-color;
+                background-color: transparent;
+                color: $text-color;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $text-color;
+                    color: $primary-bg-color;
+                }
+            }
+
+            .success {
+                margin: 3em auto;
+                font-size: 1.4em;
+
+                .answer {
+                    display: flex;
+                    justify-content: center;
+                    font-family: monospace;
+                    font-size: 1.4em;
+                    letter-spacing: 0.5em;
+                    color: $active-text-color;
+                    font-weight: bold;
+                    margin: 1rem auto;
+                    padding: 0.75rem 1rem;
+                    border: 1px solid $text-color;
+                    border-radius: 5px;
+                    width: fit-content;
+                    min-width: 20rem;
+                }
+            }
+        }
+
+        .guesses, .guess {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
+            margin-bottom: 1em;
+        }
+
+        .tips {
+            color: $tip-text-color;
+            margin-bottom: 1em;
+        }
+
+        .input, .values {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1em;
+            margin-bottom: 2em;
+
+            input {
+                border: 2px solid $text-color;
+                border-radius: 5px;
+                padding: 5px;
+                font-size: 1.5em;
+                text-align: center;
+                height: 40px;
+                width: 40px;
+                font-size: 2rem;
+
+                &:disabled {
+                    color: $text-color;
+                }
+            }
+        }
+    }
+}
