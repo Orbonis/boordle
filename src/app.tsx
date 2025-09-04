@@ -110,7 +110,7 @@ class App extends React.Component<Properties, State> {
                     <h1>B00rd1e</h1>
                     <h2>
                         Get some practice before you {" "}
-                        <a target="_blank" href="https://mikeklubnika.itch.io/crank-it">Crank It</a>!
+                        <a target="_blank" rel="noreferrer" href="https://mikeklubnika.itch.io/crank-it">Crank It</a>!
                     </h2>
                     <div className="tabs">
                         <button className={gameTabClasses} onClick={() => this.setState({ tab: "game" })}>
