@@ -14,6 +14,8 @@ interface State {
     guesses: string[];
     answer: string;
 
+    exampleAnswer: string;
+
     solver: {
         input: ("" | "0" | "1" | "2" | "3" | "4" | "5" | "6");
         guesses: number[][];
@@ -43,6 +45,7 @@ class App extends React.Component<Properties, State> {
             tab: "game",
             input: Array.from({ length: this.config.length }, () => ""),
             answer: Math.random().toString(2).slice(2, this.config.length + 2),
+            exampleAnswer: Math.random().toString(2).slice(2, this.config.length + 2),
             guesses: [],
             tipIndex: 0,
             solver: {
@@ -217,7 +220,7 @@ class App extends React.Component<Properties, State> {
                 <div className="guesses">
                     <div className="info">
                         I am thinking of a binary number with {this.config.length} digits.<br />
-                        For example, { Math.random().toString(2).slice(2, this.config.length + 2) }.
+                        For example, { this.state.exampleAnswer }.
                         <br />
                         But not that.
                         <br/>
@@ -323,7 +326,8 @@ class App extends React.Component<Properties, State> {
                     input: "0",
                     guesses: [],
                     answer: null
-                }
+                },
+                exampleAnswer: Math.random().toString(2).slice(2, this.config.length + 2)
             }, () => {
                 this.solver.next();
             });
