@@ -266,7 +266,7 @@ class App extends React.Component<Properties, State> {
                         Enter a number between 0 and 6 to indicate the number of correct positions.
                     </div>
                     <div className={inputClasses}>
-                        <input id="solver-input" type="number" min="0" max="6" step={""} value={this.state.solver.input} onChange={(e) => this.solver.onInputChange(e)} />
+                        <input id="solver-input" type="text" min="0" max="6" step={""} value={this.state.solver.input} onChange={(e) => this.solver.onInputChange(e)} />
                     </div>
                 </div>
             );
