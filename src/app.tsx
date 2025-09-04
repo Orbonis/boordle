@@ -22,11 +22,6 @@ interface State {
 }
 
 class App extends React.Component<Properties, State> {
-    private readonly config = {
-        length: 6,
-        maxGuesses: 9
-    }
-
     private readonly tips: string[] = [
         "Start with strategic patterns like 111000 or 101010 to maximize information gain",
         "Use feedback to eliminate possibilities - if 3 are correct, exactly 3 positions are right",
@@ -94,11 +89,13 @@ class App extends React.Component<Properties, State> {
     public render() {
         const tab = (this.state.tab === "game") ? (
             <main>
+                {this.config.render()}
                 {this.guesses.render()}
                 {this.input.render()}
             </main>
         ) : (
             <main>
+                {this.config.render()}
                 {this.solver.render()}
             </main>
         );
@@ -129,6 +126,47 @@ class App extends React.Component<Properties, State> {
                 { tab }
             </div>
         );
+    }
+
+    public config = {
+        length: 6,
+        maxGuesses: 9,
+        render: () => {
+            return (
+                <div className="config">
+                    <div>
+                        <label>Length</label>
+                        <input 
+                            type="number" 
+                            value={this.config.length} 
+                            step={1} 
+                            min={1} 
+                            max={16} 
+                            onChange={(e) => {
+                                this.config.length = Number(e.target.value);
+                                this.guesses.reset();
+                                this.solver.reset();
+                            }} 
+                        />
+                    </div>
+                    <div>
+                        <label>Max Guesses</label>
+                        <input 
+                            type="number" 
+                            value={this.config.maxGuesses} 
+                            step={1} 
+                            min={1} 
+                            max={16} 
+                            onChange={(e) => {
+                                this.config.maxGuesses = Number(e.target.value);
+                                this.guesses.reset();
+                                this.solver.reset();
+                            }} 
+                        />
+                    </div>
+                </div>
+            );
+        }
     }
 
     public guesses = {
