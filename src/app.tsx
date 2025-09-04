@@ -149,7 +149,7 @@ class App extends React.Component<Properties, State> {
                             }} 
                         />
                     </div>
-                    <div>
+                    <div className={this.helpers.conditionalClassName({ hidden: this.state.tab === "solver" })}>
                         <label>Max Guesses</label>
                         <input 
                             type="number" 
