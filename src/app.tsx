@@ -168,6 +168,12 @@ class App extends React.Component<Properties, State> {
 
             return (
                 <div className="guesses">
+                    <div className="info">
+                        I am thinking of a binary number with {this.config.length} digits.<br />
+                        For example, 110110.
+                        <br />
+                        Make a guess and I will tell you how many digits are correct.
+                    </div>
                     {this.state.guesses.map((guess, index) => {
                         const remainingGuesses = index === this.state.guesses.length - 1 ? (
                             <span>

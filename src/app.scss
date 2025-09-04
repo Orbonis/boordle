@@ -88,6 +88,7 @@ $active-text-color: #fff;
         text-align: center;
         max-height: 100vh;
         overflow-y: auto;
+        line-height: 1.4;
 
         .hidden {
             display: none !important;
@@ -145,6 +146,11 @@ $active-text-color: #fff;
 
         .tips {
             color: $tip-text-color;
+            margin-bottom: 1em;
+        }
+
+        .info {
+            font-size: 1.1em;
             margin-bottom: 1em;
         }
 
