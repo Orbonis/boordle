@@ -363,13 +363,15 @@ class App extends React.Component<Properties, State> {
                 }
             }
 
-            window.setTimeout(() => {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-                const main = document.getElementsByTagName("main")[0];
-                if (main) {
-                    main.scrollTo({ top: main.scrollHeight, behavior: "smooth" });
-                }
-            }, 0);
+            if (!this.helpers.isMobilePortrait()) {
+                window.setTimeout(() => {
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+                    const main = document.getElementsByTagName("main")[0];
+                    if (main) {
+                        main.scrollTo({ top: main.scrollHeight, behavior: "smooth" });
+                    }
+                }, 0);
+            }
         },
         onChange: (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
             const value = e.currentTarget.value;
@@ -416,6 +418,9 @@ class App extends React.Component<Properties, State> {
             return Object.entries(classes).map(([className, condition]) => {
                 return condition ? className : "";
             }).join(" ");
+        },
+        isMobilePortrait: () => {
+            return window.innerWidth < 600 && window.innerWidth < window.innerHeight;
         }
     }
 }
