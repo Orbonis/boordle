@@ -208,6 +208,7 @@ class App extends React.Component<Properties, State> {
         reset: () => {
             this.setState({
                 guesses: [],
+                answer: Math.random().toString(2).slice(2, this.config.length + 2),
                 input: Array.from({ length: this.config.length }, () => "")
             });
         },
