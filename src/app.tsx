@@ -80,6 +80,12 @@ class App extends React.Component<Properties, State> {
             this.input.refocus();
         }
 
+        if (this.config.length > 9 && this.state.tab === "solver") {
+            this.config.length = 9;
+            this.solver.reset();
+            return;
+        }
+
         if (prevState.tab !== this.state.tab) {
             if (this.state.tab === "game") {
                 this.input.refocus();
@@ -144,7 +150,7 @@ class App extends React.Component<Properties, State> {
                             value={this.config.length} 
                             step={1} 
                             min={1} 
-                            max={16} 
+                            max={this.state.tab === "game" ? 16 : 9} 
                             onChange={(e) => {
                                 this.config.length = Number(e.target.value);
                                 this.guesses.reset();
