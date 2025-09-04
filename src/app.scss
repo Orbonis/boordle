@@ -16,7 +16,7 @@ $active-text-color: #fff;
         justify-content: center;
         align-items: center;
         background-color: $header-bg-color;
-        gap: 1em;
+        gap: 0;
         padding: 2em 0 0 0;
 
         h1 {
@@ -35,6 +35,18 @@ $active-text-color: #fff;
             a {
                 color: $text-color;
             }
+        }
+
+        h3 {
+            font-weight: normal;
+            letter-spacing: 0.25em;
+            font-size: 1em;
+            font-stretch: condensed;
+            margin: 0.25em auto;
+            margin-bottom: 1.5em;
+            text-align: center;
+            line-height: 1.2;
+            color: $tip-text-color;
         }
 
         .tabs {
