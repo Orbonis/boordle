@@ -367,7 +367,7 @@ class App extends React.Component<Properties, State> {
             }
         },
         onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-            const validation = new Array(this.config.length).fill(0).map((_, i) => i.toString());
+            const validation = new Array(this.config.length + 1).fill(0).map((_, i) => i.toString());
             if (validation.includes(e.currentTarget.value)) {
                 this.setState({
                     solver: {
