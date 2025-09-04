@@ -88,6 +88,7 @@ $active-text-color: #fff;
         text-align: center;
         max-height: 100vh;
         overflow-y: auto;
+        overflow-x: hidden;
         line-height: 1.4;
 
         .hidden {
