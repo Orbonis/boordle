@@ -123,6 +123,9 @@ class App extends React.Component<Properties, State> {
                         </button>
                     </div>
                 </header>
+                <div className="disclaimer">
+                    'Crank It!' is a game by James Dornan and Mike Klubnika, and is not affiliated with this project or Orbonis Games.
+                </div>
                 { tab }
             </div>
         );

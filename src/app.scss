@@ -4,6 +4,7 @@ $tip-text-color: #aaa;
 $text-color: #fef;
 $tab-border-color: #555;
 $active-text-color: #fff;
+$disclaimer-text-color: #777;
 
 .app {
     background-color: $primary-bg-color;
@@ -178,6 +179,22 @@ $active-text-color: #fff;
                 }
             }
         }
+    }
+
+    .disclaimer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color: $primary-bg-color;
+        color: $disclaimer-text-color;
+        text-align: center;
+        line-height: 1.2;
     }
 }
 
