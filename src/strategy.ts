@@ -18,10 +18,6 @@ class Strategy {
     }
 
     public getNextGuess(lastGuess: number[], lastFeedback: number, guessCount: number) {
-        if (guessCount === 1) {
-            return [1, 1, 1, 0, 0, 0];
-        }
-
         if (lastGuess && lastFeedback !== null) {
             this.addConstraint(lastGuess, lastFeedback);
             this.updatePossibleNumbers();
